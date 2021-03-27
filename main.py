@@ -52,7 +52,9 @@ def main():
     FPS = 60
     level = 1
     lives = 5
+    pl_velocity = 5
     main_font = pygame.font.SysFont("comicSans", 50)
+
     ship = Ship(300, 650)
 
     clock = pygame.time.Clock()
@@ -65,15 +67,25 @@ def main():
 
         WIN.blit(lives_label, (10, 10))
         WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
-
+        ship.draw(WIN)
         pygame.display.update()
 
     while run:
         clock.tick(FPS)
         redraw_window()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_a]: # move left
+            ship.x -= pl_velocity
+        if keys[pygame.K_d]: # move right
+            ship.x += pl_velocity
+        if keys[pygame.K_w]: # move up
+            ship.y -= pl_velocity
+        if keys[pygame.K_s]: # move down
+            ship.y += pl_velocity
 
 
 main()
