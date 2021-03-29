@@ -11,26 +11,23 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))``
 pygame.display.set_caption("Super Spacy Invaders")
 
 RED_SPACE_SHIP = pygame.image.load(os.path.join(
-    "assets", "spaceship-variant-svgrepo-com.png"))
+    "assets", "pixel_ship_red_small.png"))
 GREEN_SPACE_SHIP = pygame.image.load(
-    os.path.join("assets", "spaceship-svgrepo-com (2).png"))
+    os.path.join("assets", "pixel_ship_green_small.png"))
 BLUE_SPACE_SHIP = pygame.image.load(os.path.join(
-    "assets", "ufo-spaceship-svgrepo-com.png"))
+    "assets", "pixel_ship_blue_small.png"))
 
 # Yellow ship is player ship
 YELLOW_SPACE_SHIP = pygame.image.load(os.path.join(
-    "assets", "ufo-spaceship-svgrepo-com (1).png"))
+    "assets", "pixel_ship_yellow.png"))
 
 # Lasers images
 RED_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_red.png"))
-GREEN_LASER = pygame.image.load(
-    os.path.join("assets", "pixel_laser_green.png"))
+GREEN_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_green.png"))
 BLUE_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_blue.png"))
-YELLOW_LASER = pygame.image.load(
-    os.path.join("assets", "pixel_laser_yellow.png"))
+YELLOW_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_yellow.png"))
 # game backdrop
-BG = pygame.transform.scale(pygame.image.load(
-    os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
+BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
 
 
 class Laser:
