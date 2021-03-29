@@ -7,19 +7,19 @@ import random
 pygame.font.init()
 
 WIDTH, HEIGHT = 750, 750
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))``
 pygame.display.set_caption("Super Spacy Invaders")
 
-RED_SPACE_SHIP = pygame.image.load(
-    os.path.join("assets", "pixel_ship_red_small.png"))
+RED_SPACE_SHIP = pygame.image.load(os.path.join(
+    "assets", "spaceship-variant-svgrepo-com.png"))
 GREEN_SPACE_SHIP = pygame.image.load(
-    os.path.join("assets", "smiley.ico"))
-BLUE_SPACE_SHIP = pygame.image.load(
-    os.path.join("assets", "pixel_ship_blue_small.png"))
+    os.path.join("assets", "spaceship-svgrepo-com (2).png"))
+BLUE_SPACE_SHIP = pygame.image.load(os.path.join(
+    "assets", "ufo-spaceship-svgrepo-com.png"))
 
 # Yellow ship is player ship
-YELLOW_SPACE_SHIP = pygame.image.load(
-    os.path.join("assets", "pixel_ship_yellow.png"))
+YELLOW_SPACE_SHIP = pygame.image.load(os.path.join(
+    "assets", "ufo-spaceship-svgrepo-com (1).png"))
 
 # Lasers images
 RED_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_red.png"))
@@ -232,7 +232,8 @@ def main_menu():
     run = True
     while run:
         WIN.blit(BG, (0, 0))
-        title_label = title_font.render("Press the mouse to begin...", 1, (255, 255, 255))
+        title_label = title_font.render(
+            "Press the mouse to begin...", 1, (255, 255, 255))
         WIN.blit(title_label, (WIDTH / 2 - title_label.get_width() / 2, 350))
         pygame.display.update()
     for event in pygame.event.get():
