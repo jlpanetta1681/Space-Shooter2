@@ -3,6 +3,8 @@ import os
 
 import random
 
+from spaceShooter import collide
+
 # set game font
 pygame.font.init()
 
@@ -49,7 +51,7 @@ class Laser:
         return not (height >= self.y >= 0)
 
     def collision(self, obj):
-        return collide(self, obj)
+        return hitts(self, obj)
 
 
 class Ship:
@@ -157,7 +159,7 @@ class Enemy(Ship):
                             self.lasers.remove(laser)
 
 
-def collide(obj1, obj2):
+def hitts(obj1, obj2):
     offset_x = obj2.x - obj1.x
     offset_y = obj2.y - obj1.y
     return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
@@ -231,7 +233,7 @@ def main():
             if random.randrange(0, 2 * 60) == 1:
                 enemy.shoot()
 
-            if collide(enemy, player):
+            if hitts(enemy, player):
                 player.health -= 10
                 enemy_list.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
