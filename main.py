@@ -51,7 +51,7 @@ class Laser:
         return not (height >= self.y >= 0)
 
     def collision(self, obj):
-        return hitts(self, obj)
+        return collide(self, obj)
 
 
 class Ship:
@@ -145,21 +145,18 @@ class Enemy(Ship):
             self.lasers.append(laser)
             self.cool_down_counter = 1
 
-    def move_lasers(self, vel, objs):
+    def move_lasers(self, vel, obj):
         self.cooldown()
         for laser in self.lasers:
             laser.move(vel)
             if laser.off_screen(HEIGHT):
                 self.lasers.remove(laser)
-            else:
-                for obj in objs:
-                    if laser.collision(obj):
-                        objs.remove(obj)
-                        if laser in self.lasers:
-                            self.lasers.remove(laser)
+            elif laser.collision(obj):
+                obj.health -= 10
+                self.lasers.remove(laser)
 
 
-def hitts(obj1, obj2):
+def collide(obj1, obj2):
     offset_x = obj2.x - obj1.x
     offset_y = obj2.y - obj1.y
     return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
@@ -233,7 +230,7 @@ def main():
             if random.randrange(0, 2 * 60) == 1:
                 enemy.shoot()
 
-            if hitts(enemy, player):
+            if collide(enemy, player):
                 player.health -= 10
                 enemy_list.remove(enemy)
             elif enemy.y + enemy.get_height() > HEIGHT:
