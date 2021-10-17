@@ -11,11 +11,11 @@ pygame.display.set_caption("Space Shooter Tutorial")
 
 # Load images
 RED_SPACE_SHIP = pygame.image.load(os.path.join(
-    "assets", "pixel_ship_red_small.png"))
+    "assets", "icons8-sci-fi-48.png"))
 GREEN_SPACE_SHIP = pygame.image.load(os.path.join(
-    "assets", "pixel_ship_green_small.png"))
+    "assets", "icons8-hammerstein-48.png"))
 BLUE_SPACE_SHIP = pygame.image.load(os.path.join(
-    "assets", "pixel_ship_blue_small.png"))
+    "assets", "icons8-satellite-48.png"))
 
 # Player player
 YELLOW_SPACE_SHIP = pygame.image.load(os.path.join(
